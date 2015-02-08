@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: manage bash
+# Summary: Start a shell on container
+# Help: This command is used to start an interactive shell on the container.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+bash

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: manage save-on
+# Summary: Enable the autosave feature
+# Help: This command is used to enable the autosave feature of the minecraft server.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+manage-mcrcon "save-on"

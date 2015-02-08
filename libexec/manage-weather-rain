@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Usage: manage weather-rain [duration]
+# Summary: Set the weather to rain
+# Help: This command is used to change the weather to rain on the server.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+DURATION=${1:-60}
+
+if [ -z $DURATION ]
+then
+  echo "Provide a duration"
+  exit 1
+fi
+
+manage-mcrcon "weather rain ${DURATION}"

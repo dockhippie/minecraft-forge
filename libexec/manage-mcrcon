@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Usage: manage mcrcon <command>
+# Summary: Execute a remote command
+# Help: This command is used to execute remote commands on the minecraft server console.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+if pgrep -f ${FORGE_JAR}
+then
+  mcrcon -H 127.0.0.1 -p ${RCON_PASSWORD} "${@}"
+else
+  echo "Server is not running"
+  exit 1
+fi

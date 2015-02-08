@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Usage: manage whitelist-add <player>
+# Summary: Add player to whitelist
+# Help: This command is used to add a player to the whitelist on the server.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+VALUE=${1}
+
+if [ -z $VALUE ]
+then
+  echo "Provider a player"
+  exit 1
+fi
+
+manage-mcrcon "whitelist add ${VALUE}"

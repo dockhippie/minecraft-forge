@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: manage whitelist-reload
+# Summary: Reload the whitelist
+# Help: This command is used to reload the whitelist on the server.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+manage-mcrcon "whitelist reload"

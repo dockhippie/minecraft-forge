@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Usage: manage start
+# Summary: Start the minecraft server
+# Help: This command is used to really start the minecraft server process.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+if pgrep -f ${FORGE_JAR}
+then
+  echo "Server is already running"
+else
+  manage-prepare && /usr/bin/env java -Xmx${FORGE_MAXHEAP} -Xms${FORGE_MINHEAP} -jar ${_MANAGE_ROOT}/${FORGE_JAR} ${FORGE_OPTS}
+fi

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: manage save-all
+# Summary: Save the current world state
+# Help: This command is used to save the current state of the minecraft server.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+manage-mcrcon "save-all"

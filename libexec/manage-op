@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Usage: manage op <player>
+# Summary: Op a specific player
+# Help: This command is used to op a specific player on the server.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+VALUE=${1}
+
+if [ -z "${VALUE}" ]
+then
+  echo "Provide a player"
+  exit 1
+fi
+
+manage-mcrcon "op ${VALUE}"

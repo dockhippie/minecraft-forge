@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: manage reload
+# Summary: Reload the minecraft server
+# Help: This command is used to really reload the minecraft server process.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+manage-mcrcon "reload"

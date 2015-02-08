@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Usage: manage commands
+# Summary: List all available sub commands
+# Help: This command is mostly used for display advanced help of commands.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+shopt -s nullglob
+
+{ for path in ${PATH//:/$'\n'}; do
+    for command in "${path}/manage-"*; do
+      command="${command##*manage-}"
+      echo ${command##sh-}
+    done
+  done
+} | sort | uniq

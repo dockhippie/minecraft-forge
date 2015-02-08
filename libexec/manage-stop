@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Usage: manage stop
+# Summary: Stop the minecraft server
+# Help: This command is used to really stop the minecraft server process.
+set -e
+[[ -z $_MANAGE_ROOT ]] && exit 1
+
+if pgrep -f ${FORGE_JAR}
+then
+  manage-mcrcon "stop"
+else
+  echo "Server is not running"
+fi
