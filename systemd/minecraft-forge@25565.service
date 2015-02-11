@@ -1,0 +1,17 @@
+[Unit]
+Description=Manage minecraft-forge container
+Requires=docker.service
+After=docker.service
+
+[Service]
+TimeoutStartSec=0
+KillMode=none
+
+ExecStartPre=-/bin/bash -c '/usr/bin/docker run -v /minecraft/merge -v /minecraft/world -v /minecraft/logs --name %p-data busybox:latest true || /usr/bin/true'
+
+ExecStartPre=-/bin/bash -c '/usr/bin/docker kill %p || /usr/bin/true'
+ExecStartPre=-/bin/bash -c '/usr/bin/docker rm %p || /usr/bin/true'
+ExecStartPre=-/bin/bash -c '/usr/bin/docker pull webhippie/minecraft-forge:latest || /usr/bin/true'
+
+ExecStart=/usr/bin/docker run --rm -p %i:25565 --volumes-from %p-data --name %p webhippie/minecraft-forge:latest start
+ExecStop=/usr/bin/docker kill %p
