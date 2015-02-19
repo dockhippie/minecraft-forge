@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Usage: manage console
-# Summary: Start interactive console
-# Help: This command is used to start an interactive console on the minecraft server.
-set -e
-[[ -z $_MANAGE_ROOT ]] && exit 1
-
-manage-mcrcon "-t"

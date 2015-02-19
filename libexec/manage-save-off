@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Usage: manage save-off
-# Summary: Disable the autosave feature
-# Help: This command is used to disable the autosave feature of the minecraft server.
-set -e
-[[ -z $_MANAGE_ROOT ]] && exit 1
-
-manage-mcrcon "save-off"

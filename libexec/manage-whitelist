@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Usage: manage whitelist
-# Summary: Whitelist on the server
-# Help: This command is used to list/add/remove/enable/disable the whitelist on the server.
-set -e
-[[ -z $_MANAGE_ROOT ]] && exit 1
-
-manage-mcrcon "whitelist list"
