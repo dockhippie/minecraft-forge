@@ -9,5 +9,5 @@ if manage-running
 then
   echo "Server is already running"
 else
-  manage-prepare && manage-config && /usr/bin/env java -Xmx${SERVER_MAXHEAP} -Xms${SERVER_MINHEAP} -jar ${_MANAGE_ROOT}/${FORGE_JAR} ${SERVER_OPTS}
+  manage-prepare && manage-config && /usr/bin/env java -XX:MaxPermSize=${SERVER_MAXPERM} -Xmx${SERVER_MAXHEAP} -Xms${SERVER_MINHEAP} -jar ${_MANAGE_ROOT}/${FORGE_JAR} ${SERVER_OPTS}
 fi
