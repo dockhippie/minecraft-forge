@@ -1,7 +1,7 @@
 # Minecraft Forge
 
 These are docker images for Minecraft Forge running on an
-[openSUSE 13.2 container](https://registry.hub.docker.com/_/opensuse/)
+[Vanilla Minecraft](https://registry.hub.docker.com/u/webhippie/minecraft-vanilla/)
 
 
 ## Usage
