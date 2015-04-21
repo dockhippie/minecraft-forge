@@ -1,7 +1,8 @@
 # Minecraft Forge
 
 These are docker images for Minecraft Forge running on an
-[Vanilla Minecraft](https://registry.hub.docker.com/u/webhippie/minecraft-vanilla/)
+[Vanilla Minecraft](https://registry.hub.docker.com/u/webhippie/minecraft-vanilla/).
+The cuurrent container size is ```217.4 MB```
 
 
 ## Usage
