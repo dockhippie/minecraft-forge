@@ -2,7 +2,7 @@ FROM webhippie/minecraft-vanilla:1.8
 MAINTAINER Thomas Boerger <thomas@webhippie.de>
 
 ENV MINECRAFT_VERSION 1.8
-ENV FORGE_VERSION 11.14.0.1299
+ENV FORGE_VERSION 11.14.1.1334
 ENV FORGE_URL http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 ENV FORGE_JAR forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-universal.jar
 
@@ -13,16 +13,15 @@ ENV SERVER_OPTS nogui
 ENV SERVER_MOTD Minecraft
 ENV SERVER_RCONPWD webhippie
 
-ADD libexec /minecraft/libexec
-
-RUN curl -o /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} 2> /dev/null
-RUN cd /minecraft && java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer
-RUN rm -f /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
+RUN curl -o /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} 2> /dev/null && \
+  cd /minecraft && \
+  java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer && \
+  rm -f /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
 VOLUME ["/minecraft/merge", "/minecraft/world", "/minecraft/logs"]
 
+ADD rootfs /
 EXPOSE 25565 25575
 
 WORKDIR /minecraft
-ENTRYPOINT ["manage"]
-CMD ["bash"]
+CMD ["/usr/bin/s6-svscan","/etc/s6"]

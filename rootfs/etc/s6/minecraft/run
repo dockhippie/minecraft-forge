@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ -f ./setup ]
+then
+  ./setup
+fi
+
+STARTCMD="/usr/bin/env java"
+
+if [ -n "${SERVER_MAXPERM}" ]
+then
+  STARTCMD="${STARTCMD} -XX:MaxPermSize=${SERVER_MAXPERM}"
+fi
+
+if [ -n "${SERVER_MAXHEAP}" ]
+then
+  STARTCMD="${STARTCMD} -Xmx${SERVER_MAXHEAP}"
+fi
+
+if [ -n "${SERVER_MINHEAP}" ]
+then
+  STARTCMD="${STARTCMD} -Xms${SERVER_MINHEAP}"
+fi
+
+cd /minecraft
+exec ${STARTCMD} -jar /minecraft/${FORGE_JAR} ${SERVER_OPTS}

@@ -2,7 +2,6 @@
 
 These are docker images for Minecraft Forge running on an
 [Vanilla Minecraft](https://registry.hub.docker.com/u/webhippie/minecraft-vanilla/).
-The cuurrent container size is ```217.4 MB```
 
 
 ## Usage
@@ -20,6 +19,9 @@ docker exec -ti minecraft manage help
 
 * [latest](https://github.com/dockhippie/minecraft-forge/tree/master)
   available as ```webhippie/minecraft-forge:latest``` at
+  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.14.1](https://github.com/dockhippie/minecraft-forge/tree/11.14.1)
+  available as ```webhippie/minecraft-forge:11.14.1``` at
   [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
 * [11.14.0](https://github.com/dockhippie/minecraft-forge/tree/11.14.0)
   available as ```webhippie/minecraft-forge:11.14.0``` at
@@ -47,28 +49,19 @@ ENV SERVER_RCONPWD webhippie
 Usage: manage <command> [<args>]
 
 Some useful manage commands are:
-   bash              Start a shell on container
    commands          List all available sub commands
-   config            Update server config
    console           Start interactive console
    deop              Deop a specific player
-   mcrcon            Execute a remote command
    op                Op a specific player
-   pid               Return the process id of the server
-   prepare           Prepare environment
-   reload            Reload the server
-   running           Check if the server is running
    save-all          Save the current world state
    save-off          Disable the autosave feature
    save-on           Enable the autosave feature
    say               Say something on the server
-   start             Start the server
-   stop              Stop the server
    weather-clear     Set the weather to clear
    weather-rain      Set the weather to rain
    weather-thunder   Set the weather to thunder
-   whitelist         Whitelist on the server
    whitelist-add     Add player to whitelist
+   whitelist-list    Whitelist on the server
    whitelist-off     Disable the whitelist
    whitelist-on      Enable the whitelist
    whitelist-reload  Reload the whitelist

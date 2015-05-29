@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Usage: manage pid
-# Summary: Return the process id of the server
-# Help: This command is used to gather the process id of the running server.
-set -e
-[[ -z $_MANAGE_ROOT ]] && exit 1
-
-pgrep -f ${FORGE_JAR}
