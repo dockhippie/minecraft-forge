@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -n "${SERVER_DYNMAP}" ] && [[ "${SERVER_DYNMAP}" == "true" || "${SERVER_DYNMAP}" == 1 ]]
+then
+  cp -f /minecraft/optional/DYNMAP.jar /minecraft/mods/DYNMAP.jar
+else
+  rm -f /minecraft/mods/DYNMAP.jar
+fi

@@ -12,16 +12,17 @@ ENV SERVER_MAXPERM 128M
 ENV SERVER_OPTS nogui
 ENV SERVER_MOTD Minecraft
 ENV SERVER_RCONPWD webhippie
+ENV SERVER_DYNMAP true
 
 RUN curl -o /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} 2> /dev/null && \
   cd /minecraft && \
   java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer && \
   rm -f /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
-VOLUME ["/minecraft/merge", "/minecraft/world", "/minecraft/logs"]
+VOLUME ["/minecraft/merge", "/minecraft/world", "/minecraft/logs", "/minecraft/dynmap"]
 
 ADD rootfs /
-EXPOSE 25565 25575
+EXPOSE 25565 25575 8123
 
 WORKDIR /minecraft
 CMD ["/usr/bin/s6-svscan","/etc/s6"]

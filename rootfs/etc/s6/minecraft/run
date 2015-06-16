@@ -5,6 +5,11 @@ then
   ./setup
 fi
 
+if [ -f ./optional ]
+then
+  ./optional
+fi
+
 STARTCMD="/usr/bin/env java"
 
 if [ -n "${SERVER_MAXPERM}" ]
