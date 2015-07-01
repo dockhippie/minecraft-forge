@@ -11,7 +11,7 @@ docker run --name minecraft-data busybox true
 docker run -d -p 25565:25565 -p 8123:8123 \
   --volumes-from minecraft-data \
   --name minecraft \
-  webhippie/minecraft-forge:latest
+  webhippie/minecraft-forge:10.13.2
 
 # Execute this for further available commands
 docker exec -ti minecraft manage help
