@@ -56,6 +56,7 @@ ENV SERVER_OPTS nogui
 ENV SERVER_MOTD Minecraft
 ENV SERVER_RCONPWD webhippie
 ENV SERVER_DYNMAP true
+ENV JAVA_OPTS -server -XX:+UseConcMarkSweepGC
 ```
 
 
