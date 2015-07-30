@@ -28,4 +28,4 @@ then
 fi
 
 cd /minecraft
-exec ${STARTCMD} {$JAVA_OPTS} -jar /minecraft/${FORGE_JAR} ${SERVER_OPTS}
+exec ${STARTCMD} ${JAVA_OPTS} -jar /minecraft/${FORGE_JAR} ${SERVER_OPTS}
