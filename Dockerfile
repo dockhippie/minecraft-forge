@@ -13,6 +13,7 @@ ENV SERVER_OPTS nogui
 ENV SERVER_MOTD Minecraft
 ENV SERVER_RCONPWD webhippie
 ENV SERVER_DYNMAP true
+ENV JAVA_OPTS -server -XX:+UseConcMarkSweepGC
 
 RUN curl -o /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} 2> /dev/null && \
   cd /minecraft && \
