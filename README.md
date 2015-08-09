@@ -6,7 +6,7 @@ These are docker images for Minecraft Forge running on an
 
 ## Usage
 
-```
+```bash
 docker run --name minecraft-data busybox true
 docker run -d -p 25565:25565 -p 8123:8123 \
   --volumes-from minecraft-data \
