@@ -1,6 +1,8 @@
 # Minecraft Forge
 
-These are docker images for Minecraft Forge running on an
+[![](https://badge.imagelayers.io/webhippie/minecraft-forge:latest.svg)](https://imagelayers.io/?images=webhippie/minecraft-forge:latest 'Get your own badge on imagelayers.io')
+
+These are docker images for [Minecraft Forge](http://www.minecraftforge.net) running on an
 [Vanilla Minecraft](https://registry.hub.docker.com/u/webhippie/minecraft-vanilla/).
 
 
@@ -8,7 +10,8 @@ These are docker images for Minecraft Forge running on an
 
 ```bash
 docker run --name minecraft-data busybox true
-docker run -d -p 25565:25565 -p 8123:8123 \
+
+docker run -d -p 25565:25565 \
   --volumes-from minecraft-data \
   --name minecraft \
   webhippie/minecraft-forge:latest
