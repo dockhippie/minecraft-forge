@@ -2,12 +2,12 @@
 
 if [ -f ./setup ]
 then
-  ./setup
+  source ./setup
 fi
 
 if [ -f ./optional ]
 then
-  ./optional
+  source ./optional
 fi
 
 STARTCMD="/usr/bin/env java"
