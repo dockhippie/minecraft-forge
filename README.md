@@ -26,6 +26,15 @@ docker exec -ti minecraft manage help
 * [latest](https://github.com/dockhippie/minecraft-forge/tree/master)
   available as ```webhippie/minecraft-forge:latest``` at
   [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.15.1](https://github.com/dockhippie/minecraft-forge/tree/11.15.1)
+  available as ```webhippie/minecraft-forge:11.15.1``` at
+  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.15.0](https://github.com/dockhippie/minecraft-forge/tree/11.15.0)
+  available as ```webhippie/minecraft-forge:11.15.0``` at
+  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.14.4](https://github.com/dockhippie/minecraft-forge/tree/11.14.4)
+  available as ```webhippie/minecraft-forge:11.14.4``` at
+  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
 * [11.14.3](https://github.com/dockhippie/minecraft-forge/tree/11.14.3)
   available as ```webhippie/minecraft-forge:11.14.3``` at
   [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
