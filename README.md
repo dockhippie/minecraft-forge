@@ -1,61 +1,38 @@
 # Minecraft Forge
 
-[![](https://badge.imagelayers.io/webhippie/minecraft-forge:latest.svg)](https://imagelayers.io/?images=webhippie/minecraft-forge:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/webhippie/minecraft-forge.svg)](https://microbadger.com/images/webhippie/minecraft-forge "Get your own image badge on microbadger.com")
 
-These are docker images for [Minecraft Forge](http://www.minecraftforge.net) running on an
-[Vanilla Minecraft](https://registry.hub.docker.com/u/webhippie/minecraft-vanilla/).
-
-
-## Usage
-
-```bash
-docker run --name minecraft-data busybox true
-
-docker run -d -p 25565:25565 \
-  --volumes-from minecraft-data \
-  --name minecraft \
-  webhippie/minecraft-forge:latest
-
-# Execute this for further available commands
-docker exec -ti minecraft manage help
-```
+These are docker images for [Minecraft Forge](http://www.minecraftforge.net) running on a [Vanilla Minecraft](https://registry.hub.docker.com/u/webhippie/minecraft-vanilla/) container.
 
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/minecraft-forge/tree/master)
-  available as ```webhippie/minecraft-forge:latest``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [11.15.1](https://github.com/dockhippie/minecraft-forge/tree/11.15.1)
-  available as ```webhippie/minecraft-forge:11.15.1``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [11.15.0](https://github.com/dockhippie/minecraft-forge/tree/11.15.0)
-  available as ```webhippie/minecraft-forge:11.15.0``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [11.14.4](https://github.com/dockhippie/minecraft-forge/tree/11.14.4)
-  available as ```webhippie/minecraft-forge:11.14.4``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [11.14.3](https://github.com/dockhippie/minecraft-forge/tree/11.14.3)
-  available as ```webhippie/minecraft-forge:11.14.3``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [11.14.2](https://github.com/dockhippie/minecraft-forge/tree/11.14.2)
-  available as ```webhippie/minecraft-forge:11.14.2``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [11.14.1](https://github.com/dockhippie/minecraft-forge/tree/11.14.1)
-  available as ```webhippie/minecraft-forge:11.14.1``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [11.14.0](https://github.com/dockhippie/minecraft-forge/tree/11.14.0)
-  available as ```webhippie/minecraft-forge:11.14.0``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [10.13.4](https://github.com/dockhippie/minecraft-forge/tree/10.13.4)
-  available as ```webhippie/minecraft-forge:10.13.4``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [10.13.3](https://github.com/dockhippie/minecraft-forge/tree/10.13.3)
-  available as ```webhippie/minecraft-forge:10.13.3``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
-* [10.13.2](https://github.com/dockhippie/minecraft-forge/tree/10.13.2)
-  available as ```webhippie/minecraft-forge:10.13.2``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [latest](https://github.com/dockhippie/minecraft-forge/tree/master) available as ```webhippie/minecraft-forge:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.15.1](https://github.com/dockhippie/minecraft-forge/tree/11.15.1) available as ```webhippie/minecraft-forge:11.15.1``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.15.0](https://github.com/dockhippie/minecraft-forge/tree/11.15.0) available as ```webhippie/minecraft-forge:11.15.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.14.4](https://github.com/dockhippie/minecraft-forge/tree/11.14.4) available as ```webhippie/minecraft-forge:11.14.4``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.14.3](https://github.com/dockhippie/minecraft-forge/tree/11.14.3) available as ```webhippie/minecraft-forge:11.14.3``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.14.2](https://github.com/dockhippie/minecraft-forge/tree/11.14.2) available as ```webhippie/minecraft-forge:11.14.2``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.14.1](https://github.com/dockhippie/minecraft-forge/tree/11.14.1) available as ```webhippie/minecraft-forge:11.14.1``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [11.14.0](https://github.com/dockhippie/minecraft-forge/tree/11.14.0) available as ```webhippie/minecraft-forge:11.14.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [10.13.4](https://github.com/dockhippie/minecraft-forge/tree/10.13.4) available as ```webhippie/minecraft-forge:10.13.4``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [10.13.3](https://github.com/dockhippie/minecraft-forge/tree/10.13.3) available as ```webhippie/minecraft-forge:10.13.3``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [10.13.2](https://github.com/dockhippie/minecraft-forge/tree/10.13.2) available as ```webhippie/minecraft-forge:10.13.2``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+
+
+## Volumes
+
+* /minecraft/merge
+* /minecraft/world
+* /minecraft/logs
+* /minecraft/dynmap
+
+
+## Ports
+
+* 25565
+* 25575
+* 8123
 
 
 ## Available environment variables
@@ -69,6 +46,13 @@ ENV SERVER_MOTD Minecraft
 ENV SERVER_RCONPWD webhippie
 ENV SERVER_DYNMAP true
 ENV JAVA_OPTS -server -XX:+UseConcMarkSweepGC
+```
+
+
+## Inherited environment variables
+
+```bash
+ENV CRON_ENABLED false
 ```
 
 
@@ -115,4 +99,6 @@ MIT
 
 ## Copyright
 
-Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
+```
+Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
+```
