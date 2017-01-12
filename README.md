@@ -8,6 +8,16 @@ These are docker images for [Minecraft Forge](http://www.minecraftforge.net) run
 ## Versions
 
 * [latest](https://github.com/dockhippie/minecraft-forge/tree/master) available as ```webhippie/minecraft-forge:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [13.20.0](https://github.com/dockhippie/minecraft-forge/tree/13.20.0) available as ```webhippie/minecraft-forge:13.20.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [13.19.1](https://github.com/dockhippie/minecraft-forge/tree/13.19.1) available as ```webhippie/minecraft-forge:13.19.1``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [13.19.0](https://github.com/dockhippie/minecraft-forge/tree/13.19.0) available as ```webhippie/minecraft-forge:13.19.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [12.18.3](https://github.com/dockhippie/minecraft-forge/tree/12.18.3) available as ```webhippie/minecraft-forge:12.18.3``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [12.18.2](https://github.com/dockhippie/minecraft-forge/tree/12.18.2) available as ```webhippie/minecraft-forge:12.18.2``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [12.18.1](https://github.com/dockhippie/minecraft-forge/tree/12.18.1) available as ```webhippie/minecraft-forge:12.18.1``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [12.18.0](https://github.com/dockhippie/minecraft-forge/tree/12.18.0) available as ```webhippie/minecraft-forge:12.18.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [12.17.0](https://github.com/dockhippie/minecraft-forge/tree/12.17.0) available as ```webhippie/minecraft-forge:12.17.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [12.16.1](https://github.com/dockhippie/minecraft-forge/tree/12.16.1) available as ```webhippie/minecraft-forge:12.16.1``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
+* [12.16.0](https://github.com/dockhippie/minecraft-forge/tree/12.16.0) available as ```webhippie/minecraft-forge:12.16.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
 * [11.15.1](https://github.com/dockhippie/minecraft-forge/tree/11.15.1) available as ```webhippie/minecraft-forge:11.15.1``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
 * [11.15.0](https://github.com/dockhippie/minecraft-forge/tree/11.15.0) available as ```webhippie/minecraft-forge:11.15.0``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
 * [11.14.4](https://github.com/dockhippie/minecraft-forge/tree/11.14.4) available as ```webhippie/minecraft-forge:11.14.4``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/minecraft-forge/)
