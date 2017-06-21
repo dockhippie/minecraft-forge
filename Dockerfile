@@ -1,29 +1,34 @@
-FROM webhippie/minecraft-vanilla:1.11.2
+FROM webhippie/minecraft-vanilla:1.12
 MAINTAINER Thomas Boerger <thomas@webhippie.de>
-
-ENV MINECRAFT_VERSION 1.11.2
-ENV FORGE_VERSION 13.20.0.2214
-ENV FORGE_URL http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
-ENV FORGE_JAR forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-universal.jar
-
-ENV SERVER_MAXHEAP 2048M
-ENV SERVER_MINHEAP 512M
-ENV SERVER_MAXPERM 128M
-ENV SERVER_OPTS nogui
-ENV SERVER_MOTD Minecraft
-ENV SERVER_RCONPWD webhippie
-ENV SERVER_DYNMAP true
-ENV JAVA_OPTS -server -XX:+UseConcMarkSweepGC
-
-RUN curl -o /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} 2> /dev/null && \
-  cd /minecraft && \
-  java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer && \
-  rm -f /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
 VOLUME ["/minecraft/merge", "/minecraft/world", "/minecraft/logs", "/minecraft/dynmap"]
 
-ADD rootfs /
 EXPOSE 25565 25575 8123
 
 WORKDIR /minecraft
-CMD ["/bin/s6-svscan","/etc/s6"]
+ENTRYPOINT ["/usr/bin/entrypoint"]
+CMD ["/bin/s6-svscan", "/etc/s6"]
+
+ENV MINECRAFT_VERSION 1.12
+ENV FORGE_VERSION 14.21.0.2343
+ENV FORGE_JAR forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-universal.jar
+ENV FORGE_URL http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
+
+RUN curl --create-dirs -sLo /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} && \
+  cd /minecraft && \
+  java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer && \
+  rm -f /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar /minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar.log
+
+ADD rootfs /
+
+ARG VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.version=$VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.vcs-ref=$VCS_REF
+LABEL org.label-schema.vcs-url="https://github.com/dockhippie/minecraft-forge.git"
+LABEL org.label-schema.name="Minecraft Forge"
+LABEL org.label-schema.vendor="Thomas Boerger"
+LABEL org.label-schema.schema-version="1.0"

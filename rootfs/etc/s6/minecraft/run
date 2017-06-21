@@ -5,9 +5,17 @@ then
   source ./setup
 fi
 
-if [ -f ./optional ]
+if [ -f ./custom ]
 then
-  source ./optional
+  source ./custom
+fi
+
+if [ -d ./custom.d ]
+then
+  for FILE in $(find ./custom.d -type f -iname *.sh | sort)
+  do
+    source ${FILE}
+  done
 fi
 
 STARTCMD="/usr/bin/env java"
@@ -27,5 +35,7 @@ then
   STARTCMD="${STARTCMD} -Xms${SERVER_MINHEAP}"
 fi
 
-cd /minecraft
-exec ${STARTCMD} ${JAVA_OPTS} -jar /minecraft/${FORGE_JAR} ${SERVER_OPTS}
+pushd /minecraft > /dev/null
+  echo "> starting minecraft service"
+  exec ${STARTCMD} ${JAVA_OPTS} -jar ${FORGE_JAR} ${SERVER_OPTS}
+popd > /dev/null
