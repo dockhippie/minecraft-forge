@@ -1,0 +1,13 @@
+image: webhippie/minecraft-forge:11.14.3
+manifests:
+  -
+    image: webhippie/minecraft-forge:11.14.3-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: webhippie/minecraft-forge:11.14.3-arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
