@@ -18,10 +18,6 @@ RUN apk update && \
   apk upgrade && \
   rm -rf /var/cache/apk/*
 
-RUN apk update && \
-  apk upgrade && \
-  rm -rf /var/cache/apk/*
-
 ENV MINECRAFT_VERSION 1.8
 
 ENV FORGE_VERSION 11.14.1.1419
@@ -32,7 +28,7 @@ ENV DYNMAP_VERSION 3.0-beta-4
 ENV DYNMAP_JAR Dynmap-${DYNMAP_VERSION}-forge-1.8.9.jar
 ENV DYNMAP_URL https://media.forgecdn.net/files/2722/448/${DYNMAP_JAR}
 
-RUN curl --create-dirs -sLo /usr/share/minecraft/${FORGE_JAR} ${FORGE_URL} && \
+RUN curl --create-dirs -sLo /usr/share/minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} && \
   cd /usr/share/minecraft && \
   mkdir mods && \
   java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer && \
