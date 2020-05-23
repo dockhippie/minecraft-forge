@@ -1,8 +1,8 @@
-FROM webhippie/minecraft-vanilla:1.15.2-arm64v8
+FROM webhippie/minecraft-vanilla:1.14.4-amd64
 
 LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
   org.label-schema.name="Minecraft Forge" \
-  org.label-schema.version="31.0.14" \
+  org.label-schema.version="28.0.107" \
   org.label-schema.vendor="Thomas Boerger" \
   org.label-schema.schema-version="1.0"
 
@@ -18,9 +18,9 @@ RUN apk update && \
   apk upgrade && \
   rm -rf /var/cache/apk/*
 
-ENV MINECRAFT_VERSION 1.15.2
+ENV MINECRAFT_VERSION 1.14.4
 
-ENV FORGE_VERSION 31.0.14
+ENV FORGE_VERSION 28.0.107
 ENV FORGE_JAR forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-universal.jar
 ENV FORGE_URL http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
@@ -35,4 +35,4 @@ RUN curl --create-dirs -sLo /usr/share/minecraft/forge-${MINECRAFT_VERSION}-${FO
   rm -f forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar.log && \
   curl --create-dirs -sLo /usr/share/minecraft/optionals/${DYNMAP_JAR} ${DYNMAP_URL}
 
-COPY ./overlay ./overlay-arm64v8 /
+COPY ./overlay ./overlay-amd64 /
