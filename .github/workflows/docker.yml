@@ -19,7 +19,7 @@ jobs:
           - folder: v37.0
             tag: 37.0
             arm64: true
-            arm: true
+            arm: false
           - folder: v36.2
             tag: 36.2
             arm64: true
@@ -103,7 +103,7 @@ jobs:
           - folder: latest
             tag: latest
             arm64: true
-            arm: true
+            arm: false
 
     steps:
       - name: Checkout source
