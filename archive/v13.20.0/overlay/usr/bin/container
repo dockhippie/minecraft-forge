@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -eo pipefail
+source /usr/bin/entrypoint
+
+for FILE in $(find /etc/container.d -type f -iname \*.sh | sort); do
+    source ${FILE}
+done
+
+pushd ${MINECRAFT_GAME_DIR} >/dev/null
+    STARTCMD="su-exec minecraft java"
+
+    if [ -n "${MINECRAFT_MAXHEAP}" ]; then
+        STARTCMD="${STARTCMD} -Xmx${MINECRAFT_MAXHEAP}"
+    fi
+
+    if [ -n "${MINECRAFT_MINHEAP}" ]; then
+        STARTCMD="${STARTCMD} -Xms${MINECRAFT_MINHEAP}"
+    fi
+
+    echo "> starting minecraft server"
+    exec ${STARTCMD} ${JAVA_OPTS} -jar ${FORGE_JAR} ${MINECRAFT_OPTS}
+popd >/dev/null

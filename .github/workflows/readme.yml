@@ -1,0 +1,43 @@
+---
+name: readme
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  docker:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - name: Push readme
+        uses: actionhippie/pushrm@v1
+        if: github.event_name != 'pull_request'
+        with:
+          provider: dockerhub
+          target: webhippie/minecraft-forge
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          description: Docker image for minecraft-forge
+          readme: README.md
+
+  quayio:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - name: Push readme
+        uses: actionhippie/pushrm@v1
+        with:
+          provider: quay
+          target: quay.io/webhippie/minecraft-forge
+          apikey: ${{ secrets.QUAY_APIKEY }}
+          readme: README.md
+
+...
