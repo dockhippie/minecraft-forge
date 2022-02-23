@@ -1,0 +1,19 @@
+FROM webhippie/minecraft-vanilla:1.17.1-amd64@sha256:d8b31d9d4ba13441c1efb7310b86c192ac3395bdf2d173bc9e3ce45fa08480dd
+
+EXPOSE 25565 25575
+
+ENV FORGE_VERSION 37.1.1
+ENV FORGE_URL https://maven.minecraftforge.net/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
+
+RUN apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y libatomic1 && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  curl --create-dirs -sLo /usr/share/minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} && \
+  cd /usr/share/minecraft && \
+  mkdir mods && \
+  java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer && \
+  rm -f forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar.log run.bat run.sh
+
+COPY ./overlay /
