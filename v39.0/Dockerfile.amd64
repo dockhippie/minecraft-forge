@@ -1,8 +1,8 @@
-FROM webhippie/minecraft-vanilla:1.17.1-arm64@sha256:a2d2698a37fc4fe4281b8d29cea013d67e17ad5e3e4bdeb30a6d2f1b9c9f15e1
+FROM webhippie/minecraft-vanilla:1.18.1-amd64
 
 EXPOSE 25565 25575
 
-ENV FORGE_VERSION 37.0.127
+ENV FORGE_VERSION 39.0.85
 ENV FORGE_URL https://maven.minecraftforge.net/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
 RUN apt-get update && \
