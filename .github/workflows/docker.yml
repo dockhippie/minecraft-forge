@@ -120,7 +120,7 @@ jobs:
     steps:
       - name: Checkout source
         id: source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Docker meta
         id: meta
