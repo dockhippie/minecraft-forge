@@ -1,4 +1,4 @@
-FROM webhippie/minecraft-vanilla:1.15-arm@sha256:527a300c4a02c9b180a010ade502815ebc31cc9a21f0098e11e3a1265c13351d
+FROM webhippie/minecraft-vanilla:1.15-arm@sha256:b665b796cb13419301d3d5296d18a4639a6e488f804f6ffab21764c388b5dcd3
 
 EXPOSE 25565 25575 8123
 
