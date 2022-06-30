@@ -1,12 +1,15 @@
 # minecraft-forge
 
-[![Docker Build](https://github.com/dockhippie/minecraft-forge/workflows/docker/badge.svg)](https://github.com/dockhippie/minecraft-forge/actions?query=workflow%3Adocker) [![Readme Build](https://github.com/dockhippie/minecraft-forge/workflows/readme/badge.svg)](https://github.com/dockhippie/minecraft-forge/actions?query=workflow%3Areadme) [![Docker Size](https://img.shields.io/docker/image-size/webhippie/minecraft-forge/latest)](#) [![Docker Pulls](https://img.shields.io/docker/pulls/webhippie/minecraft-forge)](https://hub.docker.com/r/webhippie/minecraft-forge) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/minecraft-forge)
+[![Docker Build](https://github.com/dockhippie/minecraft-forge/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/minecraft-forge/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/minecraft-forge)
 
-These are docker images for [Vanilla Minecraft](https://minecraft.net) running on our [AdoptOpenJDK image](https://github.com/dockhippie/adoptopenjdk).
+These are docker images for [Minecraft Forge][upstream] running on our
+[Vanilla Minecraft image][parent].
 
 ## Versions
 
-For the available versions please look at [Docker Hub](https://hub.docker.com/r/webhippie/minecraft-forge/tags) or [Quay](https://quay.io/repository/webhippie/minecraft-forge?tab=tags) or check the existing folders within the [GitHub repository](https://github.com/dockhippie/minecraft-forge).
+For the available versions please look at [Docker Hub][dockerhub] or
+[Quay][quayio] or check the existing folders within the
+[GitHub repository][github].
 
 ## Volumes
 
@@ -15,9 +18,9 @@ For the available versions please look at [Docker Hub](https://hub.docker.com/r/
 
 ## Ports
 
-* 25565
-* 25575
-* 8123
+*  25565
+*  25575
+*  8123
 
 ## Available environment variables
 
@@ -28,8 +31,8 @@ For the available versions please look at [Docker Hub](https://hub.docker.com/r/
 ## Inherited environment variables
 
 *  [webhippie/minecraft-vanilla](https://github.com/dockhippie/minecraft-vanilla#available-environment-variables)
-*  [webhippie/adoptopenjdk](https://github.com/dockhippie/adoptopenjdk#available-environment-variables)
-*  [webhippie/alpine](https://github.com/dockhippie/alpine#available-environment-variables)
+*  [webhippie/temurin](https://github.com/dockhippie/temurin#available-environment-variables)
+*  [webhippie/ubuntu](https://github.com/dockhippie/ubuntu#available-environment-variables)
 
 ## Contributing
 
@@ -48,3 +51,9 @@ MIT
 ```console
 Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
 ```
+
+[upstream]: https://minecraft.net
+[parent]: https://github.com/dockhippie/minecraft-vanilla
+[dockerhub]: https://hub.docker.com/r/webhippie/minecraft-forge/tags
+[quayio]: https://quay.io/repository/webhippie/minecraft-forge?tab=tags
+[github]: https://github.com/dockhippie/minecraft-forge
