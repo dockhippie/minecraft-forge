@@ -8,9 +8,10 @@ ENV FORGE_URL https://maven.minecraftforge.net/net/minecraftforge/forge/${MINECR
 
 RUN apt-get update && \
   apt-get upgrade -y && \
-  apt-get install -y libatomic1 && \
+  apt-get install -y libatomic1 ca-certificates ca-certificates-java && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
+  /var/lib/dpkg/info/ca-certificates-java.postinst configure && \
   curl --create-dirs -sLo /usr/share/minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} && \
   cd /usr/share/minecraft && \
   mkdir mods && \

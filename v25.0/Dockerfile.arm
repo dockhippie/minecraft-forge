@@ -8,7 +8,7 @@ ENV FORGE_URL https://maven.minecraftforge.net/net/minecraftforge/forge/${MINECR
 
 RUN apt-get update && \
   apt-get upgrade -y && \
-  apt-get install -y libatomic1 ca-certificates-java && \
+  apt-get install -y libatomic1 ca-certificates ca-certificates-java && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   /var/lib/dpkg/info/ca-certificates-java.postinst configure && \
