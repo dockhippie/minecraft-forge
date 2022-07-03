@@ -11,7 +11,7 @@ RUN apt-get update && \
   apt-get install -y libatomic1 ca-certificates ca-certificates-java && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  /var/lib/dpkg/info/ca-certificates-java.postinst configure && \
+  ln -sf /etc/ssl/certs/java/cacerts /etc/ssl/certs/adoptium/cacerts && \
   curl --create-dirs -sLo /usr/share/minecraft/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar ${FORGE_URL} && \
   cd /usr/share/minecraft && \
   mkdir mods && \
