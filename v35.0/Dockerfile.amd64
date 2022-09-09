@@ -1,4 +1,4 @@
-FROM webhippie/minecraft-vanilla:1.16.4-amd64@sha256:a3304054f4bea609c4886f7a8a44c01b4213678e830c4cadf55945f4c8f152d7
+FROM webhippie/minecraft-vanilla:1.16.4-amd64@sha256:c04259cef140d182be7893e23b32fe124906ef801efbf5e86e1f273cc05f39e3
 
 EXPOSE 25565 25575 8123
 
