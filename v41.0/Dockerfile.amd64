@@ -2,7 +2,7 @@ FROM webhippie/minecraft-vanilla:1.19-amd64@sha256:94efe5d0ddf006ad20876312646c9
 
 EXPOSE 25565 25575
 
-ENV FORGE_VERSION 41.0.62
+ENV FORGE_VERSION 41.0.113
 ENV FORGE_URL https://maven.minecraftforge.net/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
 RUN apt-get update && \
