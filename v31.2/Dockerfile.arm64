@@ -2,7 +2,7 @@ FROM webhippie/minecraft-vanilla:1.15.2-arm64@sha256:3c86daaed1ea5a756de5636a8bd
 
 EXPOSE 25565 25575 8123
 
-ENV FORGE_VERSION 31.2.55
+ENV FORGE_VERSION 31.2.57
 ENV FORGE_JAR forge-${MINECRAFT_VERSION}-${FORGE_VERSION}.jar
 ENV FORGE_URL https://maven.minecraftforge.net/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
