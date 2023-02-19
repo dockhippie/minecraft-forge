@@ -1,19 +1,19 @@
 ---
-name: latest
+name: v44.1
 
 "on":
   push:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v44.1/*
+      - .github/workflows/v44.1.yml
   pull_request:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v44.1/*
+      - .github/workflows/v44.1.yml
   workflow_dispatch:
 
 jobs:
@@ -67,28 +67,28 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.amd64
+          context: v44.1/
+          file: v44.1/Dockerfile.amd64
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/minecraft-forge:latest-amd64
-            quay.io/webhippie/minecraft-forge:latest-amd64
+            webhippie/minecraft-forge:44.1-amd64
+            quay.io/webhippie/minecraft-forge:44.1-amd64
 
       - name: Build arm64
         id: arm64
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.arm64
+          context: v44.1/
+          file: v44.1/Dockerfile.arm64
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/minecraft-forge:latest-arm64
-            quay.io/webhippie/minecraft-forge:latest-arm64
+            webhippie/minecraft-forge:44.1-arm64
+            quay.io/webhippie/minecraft-forge:44.1-arm64
 
       - name: Hub manifest
         id: manifest1
@@ -98,8 +98,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           platforms: linux/amd64,linux/arm64
-          template: webhippie/minecraft-forge:latest-ARCH
-          target: webhippie/minecraft-forge:latest
+          template: webhippie/minecraft-forge:44.1-ARCH
+          target: webhippie/minecraft-forge:44.1
           ignore_missing: true
 
       - name: Quay manifest
@@ -110,8 +110,8 @@ jobs:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           platforms: linux/amd64,linux/arm64
-          template: quay.io/webhippie/minecraft-forge:latest-ARCH
-          target: quay.io/webhippie/minecraft-forge:latest
+          template: quay.io/webhippie/minecraft-forge:44.1-ARCH
+          target: quay.io/webhippie/minecraft-forge:44.1
           ignore_missing: true
 
 ...

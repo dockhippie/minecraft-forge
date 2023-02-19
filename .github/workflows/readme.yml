@@ -1,10 +1,13 @@
 ---
 name: readme
 
-on:
+"on":
   push:
     branches:
       - master
+    paths:
+      - README.md
+  workflow_dispatch:
 
 jobs:
   readme:
