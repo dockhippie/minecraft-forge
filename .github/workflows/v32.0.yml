@@ -1,19 +1,19 @@
 ---
-name: latest
+name: v32.0
 
 "on":
   push:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v32.0/*
+      - .github/workflows/v32.0.yml
   pull_request:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v32.0/*
+      - .github/workflows/v32.0.yml
   workflow_dispatch:
 
 jobs:
@@ -67,28 +67,42 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.amd64
+          context: v32.0/
+          file: v32.0/Dockerfile.amd64
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/minecraft-forge:latest-amd64
-            quay.io/webhippie/minecraft-forge:latest-amd64
+            webhippie/minecraft-forge:32.0-amd64
+            quay.io/webhippie/minecraft-forge:32.0-amd64
 
       - name: Build arm64
         id: arm64
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.arm64
+          context: v32.0/
+          file: v32.0/Dockerfile.arm64
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/minecraft-forge:latest-arm64
-            quay.io/webhippie/minecraft-forge:latest-arm64
+            webhippie/minecraft-forge:32.0-arm64
+            quay.io/webhippie/minecraft-forge:32.0-arm64
+
+      - name: Build arm
+        id: arm
+        uses: docker/build-push-action@v3
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          context: v32.0/
+          file: v32.0/Dockerfile.arm
+          platforms: linux/arm/v7
+          push: ${{ github.event_name != 'pull_request' }}
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            webhippie/minecraft-forge:32.0-arm
+            quay.io/webhippie/minecraft-forge:32.0-arm
 
       - name: Hub manifest
         id: manifest1
@@ -97,9 +111,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          platforms: linux/amd64,linux/arm64
-          template: webhippie/minecraft-forge:latest-ARCH
-          target: webhippie/minecraft-forge:latest
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          template: webhippie/minecraft-forge:32.0-ARCH
+          target: webhippie/minecraft-forge:32.0
           ignore_missing: true
 
       - name: Quay manifest
@@ -109,9 +123,9 @@ jobs:
         with:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
-          platforms: linux/amd64,linux/arm64
-          template: quay.io/webhippie/minecraft-forge:latest-ARCH
-          target: quay.io/webhippie/minecraft-forge:latest
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          template: quay.io/webhippie/minecraft-forge:32.0-ARCH
+          target: quay.io/webhippie/minecraft-forge:32.0
           ignore_missing: true
 
 ...
