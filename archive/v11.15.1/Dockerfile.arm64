@@ -1,4 +1,4 @@
-FROM webhippie/minecraft-vanilla:1.8.9-arm64
+FROM ghcr.io/dockhippie/minecraft-vanilla:1.8.9-arm64
 
 EXPOSE 25565 25575 8123
 

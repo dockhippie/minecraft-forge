@@ -1,4 +1,4 @@
-FROM webhippie/minecraft-vanilla:1.12-arm
+FROM ghcr.io/dockhippie/minecraft-vanilla:1.12-arm
 
 EXPOSE 25565 25575
 
