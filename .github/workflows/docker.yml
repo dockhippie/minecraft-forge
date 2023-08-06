@@ -78,6 +78,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: latest/
+          provenance: false
           file: latest/Dockerfile.amd64
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
@@ -93,6 +94,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: latest/
+          provenance: false
           file: latest/Dockerfile.arm64
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
