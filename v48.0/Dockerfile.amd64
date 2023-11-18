@@ -2,7 +2,7 @@ FROM ghcr.io/dockhippie/minecraft-vanilla:1.20.2-amd64 AS build
 
 EXPOSE 25565 25575
 
-ENV FORGE_VERSION 48.0.14
+ENV FORGE_VERSION 48.0.40
 ENV FORGE_URL https://maven.minecraftforge.net/net/minecraftforge/forge/${MINECRAFT_VERSION}-${FORGE_VERSION}/forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
 
 RUN apt-get update && \
