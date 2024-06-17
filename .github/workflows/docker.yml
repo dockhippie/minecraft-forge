@@ -74,7 +74,7 @@ jobs:
 
       - name: Build amd64
         id: amd64
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: latest/
@@ -90,7 +90,7 @@ jobs:
 
       - name: Build arm64
         id: arm64
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: latest/
