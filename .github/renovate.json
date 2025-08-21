@@ -5,10 +5,10 @@
     ],
     "packageRules": [
         {
-            "datasources": [
+            "matchDatasources": [
                 "docker"
             ],
-            "updateTypes": [
+            "matchUpdateTypes": [
                 "major",
                 "minor",
                 "patch"
