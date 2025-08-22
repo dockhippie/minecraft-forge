@@ -107,6 +107,17 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v5
 
+  manifest:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+
+    needs:
+      - docker
+
+    steps:
+      - name: Wait something
+        run: sleep 60
+
       - name: Hub manifest
         uses: actionhippie/manifest@v1
         with:
