@@ -11,9 +11,6 @@ name: latest
   pull_request:
     branches:
       - master
-    paths:
-      - latest/*
-      - .github/workflows/docker.yml
   workflow_dispatch:
 
 jobs:
