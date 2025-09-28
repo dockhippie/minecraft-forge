@@ -111,7 +111,7 @@ jobs:
         run: sleep 60
 
       - name: Hub manifest
-        uses: actionhippie/manifest@6e645218a2939c5ec0f239ed80e5b7ff903b9cc2 # v1
+        uses: actionhippie/manifest@fec2eb5d3b487c1cc91e4a8860fd92cdb6c836e2 # v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -121,7 +121,7 @@ jobs:
           ignore_missing: true
 
       - name: Quay manifest
-        uses: actionhippie/manifest@6e645218a2939c5ec0f239ed80e5b7ff903b9cc2 # v1
+        uses: actionhippie/manifest@fec2eb5d3b487c1cc91e4a8860fd92cdb6c836e2 # v1
         with:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
@@ -131,7 +131,7 @@ jobs:
           ignore_missing: true
 
       - name: Ghcr manifest
-        uses: actionhippie/manifest@6e645218a2939c5ec0f239ed80e5b7ff903b9cc2 # v1
+        uses: actionhippie/manifest@fec2eb5d3b487c1cc91e4a8860fd92cdb6c836e2 # v1
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
