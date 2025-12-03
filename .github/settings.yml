@@ -48,8 +48,6 @@ rulesets:
         parameters:
           strict_required_status_checks_policy: true
           required_status_checks:
-            - context: Semantic PR
-              integration_id: 198092
             - context: docker (amd64, linux/amd64)
               integration_id: 15368
             - context: docker (arm64, linux/arm64)
@@ -58,10 +56,10 @@ rulesets:
       - actor_id: 1
         actor_type: OrganizationAdmin
         bypass_mode: always
-      - actor_id: 951565 # app
+      - actor_id: 951565  # app
         actor_type: Integration
         bypass_mode: always
-      - actor_id: 6277016 # bots
+      - actor_id: 6277016  # bots
         actor_type: Team
         bypass_mode: always
 
@@ -88,10 +86,10 @@ rulesets:
       - actor_id: 1
         actor_type: OrganizationAdmin
         bypass_mode: always
-      - actor_id: 951565 # app
+      - actor_id: 951565  # app
         actor_type: Integration
         bypass_mode: always
-      - actor_id: 6277016 # bots
+      - actor_id: 6277016  # bots
         actor_type: Team
         bypass_mode: always
 
