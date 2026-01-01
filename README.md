@@ -25,8 +25,13 @@ For the available versions please look at [Docker Hub][dockerhub] or
 ## Available environment variables
 
 ```console
-
+MINECRAFT_DYNMAP_DIR = ${MINECRAFT_DATA_DIR}/dynmap
+MINECRAFT_ENABLE_DYNMAP = ${SERVER_DYNMAP:-true}
+MINECRAFT_MODS_DIR = ${MINECRAFT_GAME_DIR}/mods
+MINECRAFT_OPTIONALS_DIR = ${MINECRAFT_GAME_DIR}/optionals
 ```
+
+Extracted by the command: `grep -hE ': "\$\{(.*)\}"' latest/overlay/etc/entrypoint.d/*.sh | sed 's/: "\${//' | sed 's/:="/ = /' | sed 's/"}"$//' | sort | uniq`
 
 ## Inherited environment variables
 

@@ -17,3 +17,7 @@ RUN apt-get update && \
   rm -f forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar.log run.bat run.sh
 
 COPY ./overlay /
+
+RUN find /etc/container.d /etc/entrypoint.d -type f -name \*.sh -exec sed -i 's/\r$//' {} +; \
+  sed -i 's/\r$//' /usr/bin/container && \
+  chmod +x /usr/bin/container /etc/container.d/*.sh /etc/entrypoint.d/*.sh
