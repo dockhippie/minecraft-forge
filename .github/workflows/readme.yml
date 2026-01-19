@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        uses: actions/checkout@v6
 
       - name: Hub readme
-        uses: actionhippie/pushrm@db8835668f770a1b8be17d19b5e6b36450c6766f # v1
+        uses: actionhippie/pushrm@v1
         with:
           provider: dockerhub
           target: webhippie/minecraft-forge
@@ -30,7 +30,7 @@ jobs:
           readme: README.md
 
       - name: Quay readme
-        uses: actionhippie/pushrm@db8835668f770a1b8be17d19b5e6b36450c6766f # v1
+        uses: actionhippie/pushrm@v1
         with:
           provider: quay
           target: quay.io/webhippie/minecraft-forge
