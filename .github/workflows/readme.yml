@@ -26,7 +26,7 @@ jobs:
           target: webhippie/minecraft-forge
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          description: Docker image for Minecraft Forge
+          description: Docker images for Minecraft Forge
           readme: README.md
 
       - name: Quay readme

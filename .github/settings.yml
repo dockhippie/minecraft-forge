@@ -1,7 +1,7 @@
 ---
 repository:
   name: minecraft-forge
-  description: Docker images for minecraft-forge
+  description: Docker images for Minecraft Forge
   topics: docker, image
 
   private: false
