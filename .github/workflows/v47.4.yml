@@ -2,10 +2,6 @@
 # yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
 name: v47.4
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
 "on":
   workflow_dispatch:
   push:
@@ -20,6 +16,10 @@ concurrency:
     paths:
       - v47.4/*
       - .github/workflows/v47.4.yml
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
