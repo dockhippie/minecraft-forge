@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/minecraft-vanilla:1.21.9-amd64@sha256:e8e77eda7ef1f6788c41df4171940046410bf55c19531b28f74f74f1fd758a2c AS build
+FROM ghcr.io/dockhippie/minecraft-vanilla:1.21.9-amd64@sha256:d130fa707ac6659aee553226f6ef5597c20049dcbf993b699102c4895d4fe1ba AS build
 
 EXPOSE 25565 25575
 
