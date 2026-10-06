@@ -110,37 +110,63 @@ jobs:
       - docker
 
     steps:
-      - name: Wait something
-        run: sleep 60
-
-      - name: Hub manifest
-        uses: actionhippie/manifest@v1
+      - name: Hub login
+        uses: docker/login-action@v4
+        if: github.event_name != 'pull_request'
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          platforms: linux/amd64,linux/arm64
-          template: webhippie/minecraft-forge:47.3-ARCH
-          target: webhippie/minecraft-forge:47.3
-          ignore_missing: true
 
-      - name: Quay manifest
-        uses: actionhippie/manifest@v1
+      - name: Quay login
+        uses: docker/login-action@v4
+        if: github.event_name != 'pull_request'
         with:
+          registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
-          platforms: linux/amd64,linux/arm64
-          template: quay.io/webhippie/minecraft-forge:47.3-ARCH
-          target: quay.io/webhippie/minecraft-forge:47.3
-          ignore_missing: true
 
-      - name: Ghcr manifest
-        uses: actionhippie/manifest@v1
+      - name: Ghcr login
+        uses: docker/login-action@v4
+        if: github.event_name != 'pull_request'
         with:
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          platforms: linux/amd64,linux/arm64
-          template: ghcr.io/dockhippie/minecraft-forge:47.3-ARCH
-          target: ghcr.io/dockhippie/minecraft-forge:47.3
-          ignore_missing: true
+
+      - name: Push manifests
+        run: |
+          repos=("webhippie/minecraft-forge:47.3" "quay.io/webhippie/minecraft-forge:47.3" "ghcr.io/dockhippie/minecraft-forge:47.3")
+          archs=("amd64" "arm64")
+
+          retry() {
+            local max=5 delay=10
+            for i in $(seq 1 $max); do
+              "$@" && return 0
+              echo "Attempt $i failed. Retrying in ${delay}s..."
+              sleep $delay
+              delay=$(( delay * 2 ))
+            done
+            return 1
+          }
+
+          for arch in "${archs[@]}"; do
+            for repo in "${repos[@]}"; do
+              echo "Checking ${repo}-${arch}..."
+              if ! retry docker manifest inspect "${repo}-${arch}" > /dev/null 2>&1; then
+                echo "::error ::Image ${repo}-${arch} is missing"
+                exit 1
+              fi
+              echo "${repo}-${arch} does exist"
+            done
+          done
+
+          for repo in "${repos[@]}"; do
+            args=()
+            for arch in "${archs[@]}"; do
+              args+=(--amend "${repo}-${arch}")
+            done
+            docker manifest create "$repo" "${args[@]}"
+            docker manifest push "$repo"
+          done
 
 ...
